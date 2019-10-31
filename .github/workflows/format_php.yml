@@ -21,6 +21,7 @@ jobs:
       with:
         commit_message: Apply php-cs-fixer changes
         commit_options: '--no-verify'
+        file_pattern: '.'
         # branch: master
         branch: ${{ github.head_ref }}
       env:
