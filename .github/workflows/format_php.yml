@@ -1,11 +1,11 @@
 name: Format PHP
 
-# on: pull_request
+on: pull_request
 
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
 
 jobs:
   php-cs-fixer:
@@ -13,16 +13,15 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Install
-      run: composer install
-
     - name: Run php-cs-fixer
-      run: composer run format
+      uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@v2.1.0
+    - uses: gomorizsolt/git-auto-commit-action@issue-14_support-custom-git-params
+    # - uses: stefanzweifel/git-auto-commit-action@v2.1.0
       with:
         commit_message: Apply php-cs-fixer changes
-        branch: master
-        # branch: ${{ github.head_ref }}
+        commit_options: '--no-verify'
+        # branch: master
+        branch: ${{ github.head_ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
