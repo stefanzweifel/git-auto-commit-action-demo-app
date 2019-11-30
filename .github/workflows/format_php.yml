@@ -16,7 +16,8 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@master
+    # - uses: stefanzweifel/git-auto-commit-action@master
+    - uses: jkaan/git-auto-commit-action@feature/add-support-for-lfs
       with:
         commit_message: Apply php-cs-fixer changes
         commit_options: '--no-verify'
