@@ -16,8 +16,7 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    # - uses: stefanzweifel/git-auto-commit-action@master
-    - uses: yelizariev/git-auto-commit-action@patch-1
+    - uses: stefanzweifel/git-auto-commit-action@master
       with:
         commit_message: Apply php-cs-fixer changes
         commit_options: '--no-verify'
