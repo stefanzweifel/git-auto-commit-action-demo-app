@@ -16,11 +16,12 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@extract-logic-to-lib
+    - uses: stefanzweifel/git-auto-commit-action@master
       with:
         commit_message: Apply php-cs-fixer changes
         commit_options: '--no-verify'
         # branch: master
+        repository: .
         branch: ${{ github.head_ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
