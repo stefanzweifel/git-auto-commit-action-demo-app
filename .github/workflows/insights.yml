@@ -1,0 +1,15 @@
+name: Insights
+
+on: push
+
+jobs:
+  php-cs-fixer:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - uses: MilesChou/composer-action@master
+      with:
+        args: install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+
+    - uses: stefanzweifel/laravel-phpinsights-action@v1.0.0
