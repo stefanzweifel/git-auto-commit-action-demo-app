@@ -13,6 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
+        ref: ${{ github.base_ref }}
         fetch-depth: 0
 
     - name: Run php-cs-fixer
