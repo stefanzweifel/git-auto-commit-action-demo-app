@@ -24,6 +24,6 @@ jobs:
         commit_options: '--no-verify'
         # branch: master
         repository: .
-        branch: ${{ github.head_ref }}
+        branch: ${{ github.base_ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
