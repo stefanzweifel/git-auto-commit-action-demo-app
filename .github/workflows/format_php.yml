@@ -16,7 +16,7 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@refactor/github-token-to-inputs
+    - uses: stefanzweifel/git-auto-commit-action@refactor/remove-git-setup
     # - uses: yelizariev/git-auto-commit-action@patch-2
       with:
         commit_message: Apply php-cs-fixer changes
@@ -24,4 +24,3 @@ jobs:
         # branch: master
         repository: .
         branch: ${{ github.head_ref }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
