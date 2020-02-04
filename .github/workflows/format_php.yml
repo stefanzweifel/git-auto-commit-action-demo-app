@@ -2,11 +2,6 @@ name: Format PHP
 
 on: pull_request
 
-# on:
-#   push:
-#     branches:
-#       - master
-
 jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
@@ -16,11 +11,10 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@allow-usage-in-forks
+    - uses: stefanzweifel/git-auto-commit-action@feature/commiter-options
       with:
         commit_message: Apply php-cs-fixer changes
         commit_options: '--no-verify'
-        # branch: master
         repository: .
         branch: ${{ github.head_ref }}
       env:
