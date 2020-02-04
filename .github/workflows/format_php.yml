@@ -19,5 +19,6 @@ jobs:
         branch: ${{ github.head_ref }}
         commit_user_name: Custom GitHub Actions
         commit_user_email: bot@github.com
+        commit_author: Custom Bot <bot@github.com>
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
