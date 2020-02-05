@@ -2,26 +2,24 @@ name: Format PHP
 
 on: pull_request
 
-# on:
-#   push:
-#     branches:
-#       - master
-
 jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
 
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@allow-usage-in-forks
+    - uses: stefanzweifel/git-auto-commit-action@v3
       with:
         commit_message: Apply php-cs-fixer changes
-        commit_options: '--no-verify'
-        # branch: master
-        repository: .
         branch: ${{ github.head_ref }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        commit_options: '--no-verify'
+        repository: .
+
+        commit_user_name: Custom GitHub Actions
+        commit_user_email: bot@github.com
