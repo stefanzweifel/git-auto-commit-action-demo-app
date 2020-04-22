@@ -11,10 +11,10 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@master
+    - uses: stefanzweifel/git-auto-commit-action@fix-61
       with:
         commit_message: Apply php-cs-fixer changes
-        # commit_options: '-n -s'
+        commit_options: '-n -s'
 
         commit_user_name: Custom GitHub Actions
         commit_user_email: bot@github.com
