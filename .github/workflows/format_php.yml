@@ -18,6 +18,7 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@fix-67
       with:
         commit_message: Apply php-cs-fixer changes
+        branch: 'testing'
         tagging_message: 'v1.1.0'
         file_pattern: app/*.php
 
