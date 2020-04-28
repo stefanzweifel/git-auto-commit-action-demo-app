@@ -15,9 +15,10 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@master
+    - uses: stefanzweifel/git-auto-commit-action@fix-67
       with:
         commit_message: Apply php-cs-fixer changes
+        tagging_message: 'v1.1.0'
         file_pattern: app/*.php
 
         commit_user_name: Custom GitHub Actions
