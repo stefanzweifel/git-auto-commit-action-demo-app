@@ -1,6 +1,6 @@
 name: Format PHP
 
-on: push
+on: pull_request
 
 defaults:
   run:
@@ -11,16 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      # with:
-      #   ref: ${{ github.head_ref }}
+      with:
+        ref: ${{ github.head_ref }}
 
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@use-head-ref-as-default-value
+    - uses: stefanzweifel/git-auto-commit-action@master
       with:
         commit_message: Apply php-cs-fixer changes
-        file_pattern: app/*.php
-
-        commit_user_name: Custom GitHub Actions
-        commit_user_email: bot@github.com
