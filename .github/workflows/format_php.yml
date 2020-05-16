@@ -20,5 +20,4 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@feature/push-options
       with:
         commit_message: Apply php-cs-fixer changes
-        push_options: --force
-        tagging_message: 'v1.2.0'
+        push_options: '--force'
