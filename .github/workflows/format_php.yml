@@ -19,5 +19,5 @@ jobs:
 
     - uses: stefanzweifel/git-auto-commit-action@feature/skip-dirty-check
       with:
-        commit_message: Apply php-cs-fixer changes 2
+        commit_message: Apply php-cs-fixer changes 3
         skip_dirty_check: true
