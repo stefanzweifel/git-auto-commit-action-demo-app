@@ -17,7 +17,7 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@feature/skip-dirty-check
+    - uses: stefanzweifel/git-auto-commit-action@master
       with:
-        commit_message: Apply php-cs-fixer changes 4
+        commit_message: Apply php-cs-fixer changes 5
         skip_dirty_check: true
