@@ -24,11 +24,14 @@ jobs:
         commit_user_name: Custom GitHub Actions
         commit_user_email: bot@github.com
 
+    - name: Output Outputs
+      run: echo ${{ steps.commit.outputs }}
+
     - name: "Run if changes have been detected"
       if: ${{ steps.commit.outputs.changes_detected }} == "true"
       run: echo "Changes!"
 
-    - name: "Run if changes have been detected"
+    - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == true
       run: echo "Changes!"
 
@@ -36,6 +39,6 @@ jobs:
       if: ${{ steps.commit.outputs.changes_detected }} == "false"
       run: echo "No Changes!"
 
-    - name: "Run if no changes have been detected"
+    - name: "Run if no changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == false
       run: echo "No Changes!"
