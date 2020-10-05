@@ -27,18 +27,11 @@ jobs:
     - name: Output Outputs
       run: echo ${{ steps.commit.outputs }}
 
-    - name: "Run if changes have been detected"
-      if: ${{ steps.commit.outputs.changes_detected }} == "true"
-      run: echo "Changes!"
 
     - name: "Run if changes have been detected (bool)"
-      if: ${{ steps.commit.outputs.changes_detected }} == true
+      if: ${{ steps.commit.outputs.changes_detected }} == 1
       run: echo "Changes!"
 
-    - name: "Run if no changes have been detected"
-      if: ${{ steps.commit.outputs.changes_detected }} == "false"
-      run: echo "No Changes!"
-
     - name: "Run if no changes have been detected (bool)"
-      if: ${{ steps.commit.outputs.changes_detected }} == false
+      if: ${{ steps.commit.outputs.changes_detected }} == 0
       run: echo "No Changes!"
