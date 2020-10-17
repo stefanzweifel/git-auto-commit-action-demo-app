@@ -4,17 +4,13 @@ on:
   push:
     branches:
       - master
-  pull_request:
+  pull_request_target:
 
 jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.head_ref }}
-        # ref: ${{ github.event.pull_request.head.ref }}
-        repository: ${{github.event.pull_request.head.repo.full_name}}
 
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
@@ -22,6 +18,7 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       id: commit
       with:
+        branch: ${{ github.head_ref }}
         commit_message: Apply php-cs-fixer changes
         commit_options: '-n -s'
 
