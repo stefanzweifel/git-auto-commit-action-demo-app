@@ -1,6 +1,14 @@
 name: Format PHP
 
-on: push
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  pull_request_target:
+    branches:
+      - master
+
 
 jobs:
   php-cs-fixer:
@@ -11,10 +19,19 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@fix-61
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      id: commit
       with:
         commit_message: Apply php-cs-fixer changes
         commit_options: '-n -s'
 
         commit_user_name: Custom GitHub Actions
         commit_user_email: bot@github.com
+
+    - name: "Run if changes have been detected (bool)"
+      if: ${{ steps.commit.outputs.changes_detected }} == 1
+      run: echo "Changes!"
+
+    - name: "Run if no changes have been detected (bool)"
+      if: ${{ steps.commit.outputs.changes_detected }} == 0
+      run: echo "No Changes!"
