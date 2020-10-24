@@ -5,9 +5,6 @@ on:
     branches:
       - master
   pull_request:
-  pull_request_target:
-    branches:
-      - master
 
 
 jobs:
@@ -22,11 +19,7 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       id: commit
       with:
-        commit_message: Apply php-cs-fixer changes
-        commit_options: '-n -s'
-
-        commit_user_name: Custom GitHub Actions
-        commit_user_email: bot@github.com
+        branch: ${{ github.head_ref }}
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
