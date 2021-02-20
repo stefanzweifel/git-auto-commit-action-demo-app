@@ -5,7 +5,7 @@ on:
     branches:
       - master
   pull_request:
-
+  workflow_dispatch:
 
 jobs:
   php-cs-fixer:
@@ -16,7 +16,7 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@master
+    - uses: stefanzweifel/git-auto-commit-action@feature/create-new-branch-during-checkout
       id: commit
 
     - name: "Run if changes have been detected (bool)"
