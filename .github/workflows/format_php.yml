@@ -16,10 +16,8 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@feature/create-new-branch-during-checkout
+    - uses: stefanzweifel/git-auto-commit-action@master
       id: commit
-      with:
-        branch: this-branch-does-not-exist
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
