@@ -19,7 +19,8 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@master
       id: commit
       with:
-        tagging_message: 'v0.3.0'
+        branch: create-tag-in-branch
+        tagging_message: 'v0.4.0'
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
