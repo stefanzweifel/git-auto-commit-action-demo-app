@@ -1,0 +1,37 @@
+name: Format PHP
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  php-cs-fixer:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run php-cs-fixer
+      uses: docker://oskarstark/php-cs-fixer-ga
+
+    - name: Get last commit message
+      id: last-commit-message
+      run: |
+        echo "::set-output name=msg::$(git log -1 --pretty=%B)"
+
+    - uses: stefanzweifel/git-auto-commit-action@master
+      id: commit
+      with:
+        commit_message: ${{ steps.last-commit-message.outputs.msg }}
+        commit_options: '--amend --no-edit'
+        push_options: '--force'
+
+    - name: "Run if changes have been detected (bool)"
+      if: ${{ steps.commit.outputs.changes_detected }} == 1
+      run: echo "Changes!"
+
+    - name: "Run if no changes have been detected (bool)"
+      if: ${{ steps.commit.outputs.changes_detected }} == 0
+      run: echo "No Changes!"
