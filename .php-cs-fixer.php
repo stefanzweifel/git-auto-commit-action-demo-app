@@ -3,11 +3,18 @@
 use PhpCsFixer\Config;
 
 $finder = Symfony\Component\Finder\Finder::create()
+    ->notPath('bootstrap/*')
+    ->notPath('storage/*')
     ->notPath('vendor')
-    ->notPath('source')
-    ->in(__DIR__)
+    ->in([
+        __DIR__ . '/app',
+        __DIR__ . '/database',
+        __DIR__ . '/tests',
+    ])
     ->name('*.php')
-    ->notName('*.blade.php');
+    ->notName('*.blade.php')
+    ->ignoreDotFiles(true)
+    ->ignoreVCS(true);
 
 $config = new Config();
 
