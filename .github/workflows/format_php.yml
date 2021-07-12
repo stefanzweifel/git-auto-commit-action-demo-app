@@ -17,7 +17,7 @@ jobs:
       uses: docker://oskarstark/php-cs-fixer-ga
 
     - name: Shell Version
-      run: sh --version
+      run: /bin/sh --version
 
     - uses: stefanzweifel/git-auto-commit-action@issue-166
       id: commit
