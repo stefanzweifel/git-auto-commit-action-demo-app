@@ -16,7 +16,7 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@master
+    - uses: stefanzweifel/git-auto-commit-action@issue-166
       id: commit
 
     - name: "Run if changes have been detected (bool)"
