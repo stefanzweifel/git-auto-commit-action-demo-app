@@ -19,7 +19,7 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       id: commit
       with:
-        disable_globbing: true
+        disable_globbing: false
         file_pattern: ./**/*.php **/*.css
 
     - name: "Run if changes have been detected (bool)"
