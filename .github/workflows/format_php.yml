@@ -16,11 +16,8 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
+    - uses: stefanzweifel/git-auto-commit-action@master
       id: commit
-      with:
-        disable_globbing: true
-        file_pattern: ./**/*.php **/*.css
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
