@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.release.target_commitish }}
+          ref: ${{ github.ref_name }}
 
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@main
