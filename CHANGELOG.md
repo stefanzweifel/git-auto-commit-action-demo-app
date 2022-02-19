@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.4.0 - 2022-02-19
+
+Test with reusable workflow
+
 ## v1.3.0 - 2022-02-19
 
 Another test. Tag is created through GitHub UI.
