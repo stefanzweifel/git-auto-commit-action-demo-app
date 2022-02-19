@@ -1,0 +1,38 @@
+name: "Update Changelog"
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout target branch of release.
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      # Extract release date from git tag.
+      - name: Get Release Date of Tag
+        id: release_date
+        run: |
+          echo "::set-output name=date::$(git log -1 --date=short --format=%ad ${{ github.event.release.tag_name }})"
+
+      # Update changelog with given release notes, release date and version
+      - name: Update Changelog
+        uses: stefanzweifel/changelog-updater-action@main
+        with:
+          release-notes: ${{ github.event.release.body }}
+          release-date: ${{ steps.release_date.outputs.date }}
+          latest-version: ${{ github.event.release.tag_name }}
+
+      # Create commit and push changes to release target branch.
+      - name: Commit updated CHANGELOG
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: ${{ github.event.release.target_commitish }}
+          commit_message: Update CHANGELOG
+          file_pattern: CHANGELOG.md
