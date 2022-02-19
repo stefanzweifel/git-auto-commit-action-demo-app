@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.5.0 - 2022-02-19
+
+Revert previous changes and reuse Workflows
+
 ## v1.4.0 - 2022-02-19
 
 Test with reusable workflow
