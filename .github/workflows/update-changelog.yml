@@ -12,6 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
+          fetch-depth: 0
           ref: ${{ github.event.release.target_commitish }}
 
       - name: Get Release Date of Tag
