@@ -17,7 +17,8 @@ jobs:
       - name: Get Release Date of Tag
         id: release_date
         run: |
-          echo "::set-output name=date::$(git log -1 --date=short --format=%ad ${{ github.event.release.tag_name }})"
+          echo $(git log -1 --date=short --format=%ad '${{ github.event.release.tag_name }}')
+          echo "::set-output name=date::$(git log -1 --date=short --format=%ad '${{ github.event.release.tag_name }}')"
 
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@main
