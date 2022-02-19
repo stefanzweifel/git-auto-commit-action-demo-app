@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.0 - 2022-02-19
+
+New Release!
+
 ## v1.1.0 - 2022-02-19
 
 test Release
