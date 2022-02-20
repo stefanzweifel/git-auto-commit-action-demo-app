@@ -16,7 +16,7 @@ jobs:
         with:
           # Fetch entire history of repository to ensure relase date can be
           # extracted from commit of the given tag.
-          fetch-depth: 2
+          fetch-depth: 10
           # Checkout target branch of this release. Ensures that the CHANGELOG
           # is not out of date.
           ref: ${{ github.event.release.target_commitish }}
