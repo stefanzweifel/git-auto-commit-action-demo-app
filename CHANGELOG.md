@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.6.0 - 2022-02-20
+
+Test with different fetch value.
+
 ## v1.5.0 - 2022-02-19
 
 Revert previous changes and reuse Workflows
