@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.7.0 - 2022-02-20
+
+Fetch more of the history.
+
 ## v1.6.0 - 2022-02-20
 
 Test with different fetch value.
