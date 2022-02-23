@@ -18,6 +18,8 @@ jobs:
 
     - uses: stefanzweifel/git-auto-commit-action@master
       id: commit
+      with:
+        branch: does-not-exist
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
