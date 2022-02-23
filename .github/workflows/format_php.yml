@@ -16,10 +16,11 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@master
+    - uses: stefanzweifel/git-auto-commit-action@feature/create-branch-if-not-exists
       id: commit
       with:
         branch: does-not-exist
+        create_branch: true
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
