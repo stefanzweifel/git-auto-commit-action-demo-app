@@ -20,7 +20,7 @@ jobs:
       id: commit
       with:
         branch: branch-created-through-action
-        create_branch: false
+        create_branch: true
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
