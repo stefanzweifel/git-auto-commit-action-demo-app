@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.7.2 - 2022-03-19
+
+WIP Beta Channel
+
 ## v1.7.0 - 2022-02-20
 
 Fetch more of the history.
