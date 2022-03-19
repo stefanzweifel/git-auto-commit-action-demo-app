@@ -1,8 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.7.5...HEAD)
+## [Unreleased](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.7.6...main)
 
 <!-- New Release notes will be placed here automatically -->
+## [v1.7.6](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.7.5...v1.7.6) - 2022-03-19
+
+WIP
+
 ## [v1.7.5](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.7.4...v1.7.5) - 2022-03-19
 
 WIP
