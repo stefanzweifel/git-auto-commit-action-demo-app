@@ -28,7 +28,7 @@ jobs:
 
 
       - name: Update Changelog
-        uses: stefanzweifel/changelog-updater-action@beta
+        uses: stefanzweifel/changelog-updater-action@v1
         id: "changelog-updater"
         with:
           # Pass extracted release date, release notes and version to the Action.
