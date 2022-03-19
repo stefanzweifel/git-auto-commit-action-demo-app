@@ -38,10 +38,10 @@ jobs:
           compare-url-target-revision: ${{ github.event.release.target_commitish }}
 
       - name: "release_compare_url"
-        run: "echo ${{ steps.changelog-updater.outputs.release_compare_url }}
+        run: "echo ${{ steps.changelog-updater.outputs.release_compare_url }}"
 
       - name: "unreleased_compare_url"
-        run: "echo ${{ steps.changelog-updater.outputs.unreleased_compare_url }}
+        run: "echo ${{ steps.changelog-updater.outputs.unreleased_compare_url }}"
 
 
       - name: Commit updated CHANGELOG
