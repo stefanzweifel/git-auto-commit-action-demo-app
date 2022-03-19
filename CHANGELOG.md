@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.7.3 - 2022-03-19
+
+WIP
+
 ## v1.7.2 - 2022-03-19
 
 WIP Beta Channel
