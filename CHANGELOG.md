@@ -2,11 +2,12 @@
 
 ## [Unreleased](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.8.1...main)
 
+<!-- New Release notes will be placed here automatically -->
+
 ## [v1.8.1](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.8.0...v1.8.1) - 2022-03-20
 
 Consider this the release notes for the next release.
 
-<!-- New Release notes will be placed here automatically -->
 ## [v1.8.0](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.7.7...v1.8.0) - 2022-03-20
 
 ## [v1.7.7](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.7.6...v1.7.7) - 2022-03-19
