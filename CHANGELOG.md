@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.8.0...main)
+## [Unreleased](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.8.1...main)
+
+## [v1.8.1](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.8.0...v1.8.1) - 2022-03-20
 
 Consider this the release notes for the next release.
 
