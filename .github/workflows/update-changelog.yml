@@ -28,12 +28,12 @@ jobs:
 
 
       - name: Update Changelog
-        uses: stefanzweifel/changelog-updater-action@v1
+        uses: stefanzweifel/changelog-updater-action@optional-release-notes
         id: "changelog-updater"
         with:
           # Pass extracted release date, release notes and version to the Action.
           release-date: ${{ steps.release_date.outputs.date }}
-          release-notes: ${{ github.event.release.body }}
+          # release-notes: ${{ github.event.release.body }}
           latest-version: ${{ github.event.release.tag_name }}
           compare-url-target-revision: ${{ github.event.release.target_commitish }}
 
