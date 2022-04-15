@@ -5,13 +5,17 @@ on:
     branches:
       - main
   pull_request:
+  pull_request_target:
   workflow_dispatch:
 
 jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+      with:
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        ref: ${{ github.head_ref }}
 
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
