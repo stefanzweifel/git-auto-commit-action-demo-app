@@ -26,6 +26,7 @@ jobs:
       with:
         # file_pattern: "**/*.php tests/*.php"
         file_pattern: "*.php"
+        disable_globbing: true
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
