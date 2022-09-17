@@ -25,7 +25,7 @@ jobs:
       id: commit
       with:
         # file_pattern: "**/*.php tests/*.php"
-        file_pattern: "*.php"
+        file_pattern: "*.php *.md"
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
