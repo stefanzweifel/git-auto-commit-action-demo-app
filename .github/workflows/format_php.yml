@@ -20,7 +20,8 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@upgrade-to-node16
+    # - uses: stefanzweifel/git-auto-commit-action@upgrade-to-node16
+    - uses: amonshiz/git-auto-commit-action@amonshiz/amonshiz/remove-set-output-usage
       id: commit
       # with:
         # file_pattern: "**/*.php tests/*.php"
