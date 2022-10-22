@@ -1,14 +1,16 @@
 <?php
 
-$gitHubOutput = getenv('GITHUB_OUTPUT');
+$pathToGitHubOutput = getenv('GITHUB_OUTPUT');
 
-echo $gitHubOutput;
+$gitHubOutput = '';
 
 $key = 'changes_detected';
 $value = 1;
 
-// $gitHubOutput .= "$key=$value";
+$gitHubOutput .= "$key=$value\n";
 
 // putenv("GITHUB_OUTPUT=$gitHubOutput");
 
-echo "Hello World";
+file_put_contents($pathToGitHubOutput, $gitHubOutput, FILE_APPEND | LOCK_EX);
+
+echo "Hello World\n";
