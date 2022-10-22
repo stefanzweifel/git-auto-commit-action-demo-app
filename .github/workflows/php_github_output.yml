@@ -1,0 +1,26 @@
+name: Change GitHub Output with PHP
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  wip:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        ref: ${{ github.head_ref }}
+
+    - name: Change GITHUB_OUTPUT with PHP
+      id: wip
+      run: php wip.php
+
+    - name: "Run if changes have been detected (bool)"
+      if: ${{ steps.wip.outputs.changes_detected }} == 1
+      run: echo "Changes!"
+
+    - name: "Run if no changes have been detected (bool)"
+      if: ${{ steps.wip.outputs.changes_detected }} == 0
+      run: echo "No Changes!"
