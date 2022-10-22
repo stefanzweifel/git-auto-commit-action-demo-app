@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $gitHubOutput = getenv('GITHUB_OUTPUT');
 
