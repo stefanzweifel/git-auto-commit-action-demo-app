@@ -10,3 +10,5 @@ $value = 1;
 // $gitHubOutput .= "$key=$value";
 
 // putenv("GITHUB_OUTPUT=$gitHubOutput");
+
+echo "Hello World";
