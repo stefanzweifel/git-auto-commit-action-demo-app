@@ -11,9 +11,6 @@ on:
 jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
-    container:
-      image: ros:noetic-ros-core
-
     steps:
     - uses: actions/checkout@v3
       with:
