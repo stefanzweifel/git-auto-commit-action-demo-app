@@ -20,7 +20,8 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
+    # - uses: stefanzweifel/git-auto-commit-action@v4
+    - uses: Teko012/git-auto-commit-action_fork_stefanzweifel@fix/fix-github-action-bot
       id: commit
       # with:
         # file_pattern: "**/*.php tests/*.php"
