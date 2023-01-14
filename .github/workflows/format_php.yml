@@ -26,10 +26,17 @@ jobs:
 
     - run: cat commitmessage.txt;
 
-    - name: Read Commit Message
+    - name: Set commit message
       id: commit_message_step
       run: |
-       echo "commit_message=$(cat commitmessage.txt)" >> $GITHUB_OUTPUT;
+        echo 'commit_message<<EOF' >> $GITHUB_OUTPUT
+        cat commitmessage.txt >> $GITHUB_OUTPUT
+        echo 'EOF' >> $GITHUB_OUTPUT
+
+    # - name: Read Commit Message
+    #   id: commit_message_step
+    #   run: |
+    #    echo "commit_message=$(cat commitmessage.txt)" >> $GITHUB_OUTPUT;
 
     - run: rm -rf commitmessage.txt
 
