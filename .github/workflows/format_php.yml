@@ -24,6 +24,8 @@ jobs:
     - run: echo "Commit Message 2\n" >> commitmessage.txt
     - run: echo "Commit Message 3\n" >> commitmessage.txt
 
+    - run: cat commitmessage.txt;
+
     - name: Read Commit Message
       id: commit_message_step
       run: |
