@@ -20,12 +20,21 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
+    - run: echo "Commit Message 1\n" >> commitmessage.txt
+    - run: echo "Commit Message 2\n" >> commitmessage.txt
+    - run: echo "Commit Message 3\n" >> commitmessage.txt
+
+    - name: Read Commit Message
+      id: commit_message_step
+      run: |
+       echo "commit_message=$(cat commitmessage.txt)" >> $GITHUB_OUTPUT;
+
+    - run: rm -rf commitmessage.txt
+
     - uses: stefanzweifel/git-auto-commit-action@v4
       id: commit
-      # with:
-        # file_pattern: "**/*.php tests/*.php"
-        # file_pattern: "**.php"
-        # disable_globbing: true
+      with:
+        commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
