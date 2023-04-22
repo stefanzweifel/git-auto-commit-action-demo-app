@@ -1,8 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.9.0...main)
+## [Unreleased](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.10.0...main)
 
 <!-- New Release notes will be placed here automatically -->
+## [v1.10.0](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.9.0...v1.10.0) - 2023-04-22
+
+Demo Demo
+
 ## [v1.9.0](https://github.com/stefanzweifel/git-auto-commit-action-demo-app/compare/v1.8.1...v1.9.0) - 2022-03-21
 
 demo
