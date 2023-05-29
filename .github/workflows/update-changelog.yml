@@ -36,6 +36,7 @@ jobs:
           release-notes: ${{ github.event.release.body }}
           latest-version: ${{ github.event.release.tag_name }}
           compare-url-target-revision: ${{ github.event.release.target_commitish }}
+          hide-release-date: true
 
       - name: "release_compare_url"
         run: "echo ${{ steps.changelog-updater.outputs.release_compare_url }}"
