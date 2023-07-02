@@ -28,7 +28,7 @@ jobs:
 
 
       - name: Update Changelog
-        uses: stefanzweifel/changelog-updater-action@feat/upgrade-to-v1.8
+        uses: stefanzweifel/changelog-updater-action@feat/parse-github-usernames
         id: "changelog-updater"
         with:
           # Pass extracted release date, release notes and version to the Action.
@@ -36,7 +36,7 @@ jobs:
           release-notes: ${{ github.event.release.body }}
           latest-version: ${{ github.event.release.tag_name }}
           compare-url-target-revision: ${{ github.event.release.target_commitish }}
-          hide-release-date: true
+          parse-github-usernames: true
 
       - name: "release_compare_url"
         run: "echo ${{ steps.changelog-updater.outputs.release_compare_url }}"
