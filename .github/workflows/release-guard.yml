@@ -19,12 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check if Branch and Release match
+      id: guard
       run: |
-        BRANCH_NAME=$BRANCH_INPUT
-        RELEASE_NAME=$RELEASE_NAME_INPUT
-        NUMERIC_VERSION="${RELEASE_NAME#v}"
+        NUMERIC_VERSION="${RELEASE_NAME_INPUT#v}"
         MAJOR_VERSION="${NUMERIC_VERSION%%.*}"
-        BRANCH_MAJOR_VERSION="${BRANCH_NAME%%.*}"
+        BRANCH_MAJOR_VERSION="${BRANCH_INPUT%%.*}"
 
         echo "MAJOR_VERSION=$(echo $MAJOR_VERSION)" >> $GITHUB_OUTPUT;
         echo "BRANCH_MAJOR_VERSION=$(echo $BRANCH_MAJOR_VERSION)" >> $GITHUB_OUTPUT;
@@ -39,5 +38,12 @@ jobs:
       env:
         BRANCH_INPUT: ${{ inputs.branch_input }}
         RELEASE_NAME_INPUT: ${{ inputs.release_name_input }}
+
+    - name: Fail with Error Messge
+      if: ${{ steps.guard.outputs.VERSION_MISMATCH }}
+      uses: actions/github-script@v3
+      with:
+        script: |
+            core.setFailed('Version mismatch between release name and selected target branch. Changelog is not automatically updated.')
 
 
