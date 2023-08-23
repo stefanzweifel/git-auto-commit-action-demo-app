@@ -1,0 +1,40 @@
+name: Release Guard
+
+on:
+  release:
+    types: [released]
+  workflow_dispatch:
+    inputs:
+      branch_input:
+        description: 'Branch'
+        required: true
+        default: '10.x'
+      release_name_input:
+        description: 'Release'
+        required: true
+        default: 'v9.12.34'
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Check if Branch and Release match
+      run: |
+        BRANCH_NAME=$BRANCH_INPUT
+        RELEASE_NAME=$RELEASE_NAME_INPUT
+        NUMERIC_VERSION="${RELEASE_NAME#v}"
+        MAJOR_VERSION="${NUMERIC_VERSION%%.*}"
+        BRANCH_MAJOR_VERSION="${BRANCH_NAME%%.*}"
+
+        if [ "$MAJOR_VERSION" != "$BRANCH_MAJOR_VERSION" ]; then
+          echo "Mismatched versions! Aborting."
+          exit 1
+        else
+          echo "Versions match! Proceeding."
+        fi
+
+
