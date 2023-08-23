@@ -28,13 +28,6 @@ jobs:
         echo "MAJOR_VERSION=$(echo $MAJOR_VERSION)" >> $GITHUB_OUTPUT;
         echo "BRANCH_MAJOR_VERSION=$(echo $BRANCH_MAJOR_VERSION)" >> $GITHUB_OUTPUT;
         echo "VERSION_MISMATCH=$($MAJOR_VERSION != $BRANCH_MAJOR_VERSION)" >> $GITHUB_OUTPUT;
-
-        if [ "$MAJOR_VERSION" != "$BRANCH_MAJOR_VERSION" ]; then
-          echo "Mismatched versions! Aborting."
-          exit 1
-        else
-          echo "Versions match! Proceeding."
-        fi
       env:
         BRANCH_INPUT: ${{ inputs.branch_input }}
         RELEASE_NAME_INPUT: ${{ inputs.release_name_input }}
