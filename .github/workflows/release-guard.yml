@@ -43,7 +43,7 @@ jobs:
 
     - name: Fail with Error Messge
       if: ${{ steps.guard.outputs.VERSION_MISMATCH }}
-      uses: actions/github-script@v3
+      uses: actions/github-script@v6
       with:
         script: |
             core.setFailed('Version mismatch between release name and selected target branch. Changelog is not automatically updated.')
