@@ -25,10 +25,15 @@ jobs:
     - name: Check if Branch and Release match
       run: |
         BRANCH_NAME=$BRANCH_INPUT
+        echo $BRANCH_NAME;
         RELEASE_NAME=$RELEASE_NAME_INPUT
+        echo $RELEASE_NAME;
         NUMERIC_VERSION="${RELEASE_NAME#v}"
+        echo $NUMERIC_VERSION;
         MAJOR_VERSION="${NUMERIC_VERSION%%.*}"
+        echo $MAJOR_VERSION
         BRANCH_MAJOR_VERSION="${BRANCH_NAME%%.*}"
+        echo $BRANCH_MAJOR_VERSION;
 
         if [ "$MAJOR_VERSION" != "$BRANCH_MAJOR_VERSION" ]; then
           echo "Mismatched versions! Aborting."
