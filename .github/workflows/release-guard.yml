@@ -42,7 +42,7 @@ jobs:
         RELEASE_NAME_INPUT: ${{ inputs.release_name_input }}
 
     - name: Fail with Error Messge
-      if: ${{ steps.guard.outputs.VERSION_MISMATCH }}
+      if: ${{ steps.guard.outputs.VERSION_MISMATCH == true }}
       uses: actions/github-script@v6
       with:
         script: |
