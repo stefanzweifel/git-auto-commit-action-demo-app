@@ -40,5 +40,8 @@ jobs:
         else
           echo "Versions match! Proceeding."
         fi
+      env:
+        BRANCH_INPUT: ${{ inputs.branch_input }}
+        RELEASE_NAME_INPUT: ${{ inputs.release_name_input }}
 
 
