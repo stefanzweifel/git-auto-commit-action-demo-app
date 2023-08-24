@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check if Branch and Release match
+      if: ${{ inputs.branch_input != 'main' && inputs.branch_input != 'master' }}
       id: guard
       run: |
         NUMERIC_VERSION="${RELEASE_NAME_INPUT#v}"
