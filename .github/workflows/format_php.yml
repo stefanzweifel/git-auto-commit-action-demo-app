@@ -20,6 +20,12 @@ jobs:
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
 
+    - name: Read Secret
+      run: echo "TOP_SECRET_SECRET=${{ secrets.TOP_SECRET_SECRET }}" >> $GITHUB_ENV
+
+    - name: Display secret
+      run: echo "Secret value: ${{ env.TOP_SECRET_SECRET }}"
+
     - run: echo "Commit Message 1" >> commitmessage.txt
     - run: echo "Commit Message 2" >> commitmessage.txt
     - run: echo "Commit Message 3" >> commitmessage.txt
