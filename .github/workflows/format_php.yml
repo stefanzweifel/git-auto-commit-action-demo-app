@@ -37,7 +37,7 @@ jobs:
 
     - run: rm -rf commitmessage.txt
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
+    - uses: stefanzweifel/git-auto-commit-action@v6-next
       id: commit
       with:
         commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
