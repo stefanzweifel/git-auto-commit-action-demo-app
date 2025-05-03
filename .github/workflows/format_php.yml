@@ -41,6 +41,9 @@ jobs:
       id: commit
       with:
         commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
+        skip_fetch: true
+        skip_checkout: true
+        create_branch: true
 
     - name: "Run if changes have been detected (bool)"
       if: ${{ steps.commit.outputs.changes_detected }} == 1
