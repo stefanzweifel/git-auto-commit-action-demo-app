@@ -13,7 +13,8 @@ jobs:
     - uses: actions/checkout@v3
       with:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
-        ref: ${{ github.head_ref }}
+        # ref: ${{ github.head_ref }}
+        ref: 42c2ae1f8d1b5d5d487c2530983ac0b67bc19c92
 
     - name: Run php-cs-fixer
       uses: docker://oskarstark/php-cs-fixer-ga
@@ -37,7 +38,7 @@ jobs:
 
     - run: rm -rf commitmessage.txt
 
-    - uses: stefanzweifel/git-auto-commit-action@v6-next
+    - uses: stefanzweifel/git-auto-commit-action@master
       id: commit
       with:
         commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
