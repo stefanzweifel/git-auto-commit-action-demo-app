@@ -37,13 +37,11 @@ jobs:
 
       - run: rm -rf commitmessage.txt
 
-      # - uses: stefanzweifel/git-auto-commit-action@master
-      - uses: EliasBoulharts/git-auto-commit-action@custom-tag-message
+      - uses: stefanzweifel/git-auto-commit-action@v7-release
         id: commit
         with:
           commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
-          tag: v2025-10-12-2
-          create_git_tag_only: true
+          tag_name: v2025-10-12-3
           tagging_message: "Tagging Message Test"
 
       - name: "Run if changes have been detected (bool)"
