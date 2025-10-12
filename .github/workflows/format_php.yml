@@ -10,45 +10,46 @@ jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-        repository: ${{ github.event.pull_request.head.repo.full_name }}
-        ref: ${{ github.head_ref }}
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
 
-    - name: Run php-cs-fixer
-      uses: docker://oskarstark/php-cs-fixer-ga
+      - name: Run php-cs-fixer
+        uses: docker://oskarstark/php-cs-fixer-ga
 
-    - name: Read Secret
-      run: echo "TOP_SECRET_SECRET=${{ secrets.TOP_SECRET_SECRET }}" >> $GITHUB_ENV
+      - name: Read Secret
+        run: echo "TOP_SECRET_SECRET=${{ secrets.TOP_SECRET_SECRET }}" >> $GITHUB_ENV
 
-    - name: Display secret
-      run: echo "Secret value ${{ env.TOP_SECRET_SECRET }}"
+      - name: Display secret
+        run: echo "Secret value ${{ env.TOP_SECRET_SECRET }}"
 
-    - run: echo "Commit Message 1" >> commitmessage.txt
-    - run: echo "Commit Message 2" >> commitmessage.txt
-    - run: echo "Commit Message 3" >> commitmessage.txt
+      - run: echo "Commit Message 1" >> commitmessage.txt
+      - run: echo "Commit Message 2" >> commitmessage.txt
+      - run: echo "Commit Message 3" >> commitmessage.txt
 
-    - name: Set commit message
-      id: commit_message_step
-      run: |
-        echo 'commit_message<<EOF' >> $GITHUB_OUTPUT
-        cat commitmessage.txt >> $GITHUB_OUTPUT
-        echo 'EOF' >> $GITHUB_OUTPUT
+      - name: Set commit message
+        id: commit_message_step
+        run: |
+          echo 'commit_message<<EOF' >> $GITHUB_OUTPUT
+          cat commitmessage.txt >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
 
-    - run: rm -rf commitmessage.txt
+      - run: rm -rf commitmessage.txt
 
-    - uses: stefanzweifel/git-auto-commit-action@master
-      id: commit
-      with:
-        commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
+      # - uses: stefanzweifel/git-auto-commit-action@master
+      - uses: EliasBoulharts/git-auto-commit-action@custom-tag-message
+        id: commit
+        with:
+          commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
 
-    - name: "Run if changes have been detected (bool)"
-      if: ${{ steps.commit.outputs.changes_detected }} == 1
-      run: echo "Changes!"
+      - name: "Run if changes have been detected (bool)"
+        if: ${{ steps.commit.outputs.changes_detected }} == 1
+        run: echo "Changes!"
 
-    - name: "Run if no changes have been detected (bool)"
-      if: ${{ steps.commit.outputs.changes_detected }} == 0
-      run: echo "No Changes!"
+      - name: "Run if no changes have been detected (bool)"
+        if: ${{ steps.commit.outputs.changes_detected }} == 0
+        run: echo "No Changes!"
 
-    - name: GITHUB_OUTPUT value
-      run: echo $GITHUB_OUTPUT
+      - name: GITHUB_OUTPUT value
+        run: echo $GITHUB_OUTPUT
