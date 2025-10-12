@@ -42,6 +42,8 @@ jobs:
         id: commit
         with:
           commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
+          tag: v2025-10-12-1
+          tagging_message: "Tagging Message Test"
 
       - name: "Run if changes have been detected (bool)"
         if: ${{ steps.commit.outputs.changes_detected }} == 1
