@@ -37,12 +37,12 @@ jobs:
 
       - run: rm -rf commitmessage.txt
 
-      - uses: stefanzweifel/git-auto-commit-action@v7-release
+      - uses: stefanzweifel/git-auto-commit-action@git-auto-commit-hooks
         id: commit
         with:
+          before_commit_hook: |
+            echo "About to commit at $(date)"
           commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
-          tag_name: v2025-10-12-3
-          tagging_message: "Tagging Message Test"
 
       - name: "Run if changes have been detected (bool)"
         if: ${{ steps.commit.outputs.changes_detected }} == 1
